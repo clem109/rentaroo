@@ -22,8 +22,10 @@
   "homepage": "https://github.com/clem109/rentaroo#readme",
   "dependencies": {
     "bulma": "^0.7.1",
+    "moment": "^2.22.2",
     "next": "^6.0.3",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-timeslot-calendar": "^0.2.0"
   }
 }

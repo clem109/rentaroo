@@ -12,13 +12,22 @@ export default class extends React.Component {
     let id = query.id
       ? query.id
       : 1
-    var data = getPropertyById(mockData, id)
-    data = formatData(data)
-    return data
+    const propById = getPropertyById(mockData, id)
+    return {data: formatData(propById)}
   }
 
   render() {
-
+    const {
+      title,
+      city,
+      location,
+      price,
+      id,
+      date,
+      rooms,
+      floor
+    } = this.props.data
+    console.log(this.props.data)
     return (
       <div>
 
@@ -50,12 +59,12 @@ export default class extends React.Component {
             <div className="column is-two-thirds">
               <div className="columns">
                 <div className="column">
-                  {Detail("Address", this.props.location)}
-                  {Detail("Floor", this.props.floor)}
+                  <Detail name="Adress" val={city + ', ' + location}/>
+                  <Detail name="Floor" val={floor}/>
                 </div>
                 <div className="column">
-                  {Detail("Rooms", this.props.rooms)}
-                  {Detail("Published date", this.props.date)}
+                  <Detail name="Rooms" val={rooms}/>
+                  <Detail name={"Published date"} val={date}/>
                 </div>
               </div>
             </div>
@@ -66,18 +75,20 @@ export default class extends React.Component {
   }
 
 }
-const Image = (id) => {
+const Image = ({id}) => {
   return (<img src={"/static/img/room" + id + ".jpg"}/>)
 }
-const Detail = (name, val) => {
-  return (
-    <div>
-      <b>{name}</b>
-      : {val}
-    </div>
-  )
+const Detail = ({name, val}) => {
+  if (name) {
+    return (
+      <div>
+        <b>{name}</b>
+        : {val}
+      </div>
+    )
+  }
 }
 
-const getPropertyById = (data, id) => {
-  return data.filter((el) => el.id == id)[0]
+const getPropertyById = (dat, id) => {
+  return dat.filter((el) => el.id == id)[0]
 }

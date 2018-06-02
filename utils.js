@@ -10,10 +10,10 @@ const renderFloor = (nb) => {
 }
 
 const formatData = (prop) => {
-    prop.rooms = renderRooms(prop.rooms)
-    console.log(prop.room)
-    prop.floor = renderFloor(prop.floor)
-    return prop
+    let ret = Object.assign({}, prop)
+    ret.rooms = renderRooms(ret.rooms)
+    ret.floor = renderFloor(ret.floor)
+    return ret
 }
 
 export { formatData }
