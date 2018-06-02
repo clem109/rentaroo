@@ -75,10 +75,7 @@ const FullWidthImage = () => {
               style={{
               padding: "10px 100px"
             }}>
-              <input
-                className="input is-large"
-                type="text"
-                placeholder="Discover something amazing..."/>
+              <input className="input is-large" type="text" placeholder="Search now..."/>
             </div>
           </p>
         </div>
@@ -124,6 +121,21 @@ const PropertyDetail = ({
             <img src={`../static/img/room${id}.jpg`}/>
           </figure>
         </Link>
+        <div class="tags">
+
+          <span
+            class="tag is-primary"
+            style={{
+            margin: "10px 3px"
+          }}>Close to Subway</span>
+          <span
+            class="tag is-primary"
+            style={{
+            margin: "10px 3px"
+          }}>Good Schools</span>
+
+        </div>
+
       </div>
       <div className="column is-two-thirds ">
         <div className="tile">

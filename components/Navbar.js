@@ -40,11 +40,9 @@ export default class Navbar extends React.PureComponent {
                     Home
                   </a>
                 </Link>
-                <Link href="/login">
-                  <a className="navbar-item">
-                    Login
-                  </a>
-                </Link>
+                <a className="navbar-item">
+                  Login
+                </a>
 
                 <span className="navbar-item">
                   <a className="button is-info is-inverted" onClick={this.toggleModal}>
