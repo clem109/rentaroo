@@ -10,7 +10,8 @@ export default class extends React.Component {
       <div>
         <p>Hello Next.js</p>
         <Link href="/property">
-          <a>Click me</a>
+          <button class="button is-primary">Click me</button>
+
         </Link>
       </div>
     )
