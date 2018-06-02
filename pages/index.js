@@ -61,7 +61,7 @@ const Pagination = () => {
 
 const FullWidthImage = () => {
   return (
-    <section className="hero is-primary is-large">
+    <section className="hero is-primary is-medium is-bold">
       <Navbar/>
 
       <div className="hero-body">
@@ -70,7 +70,11 @@ const FullWidthImage = () => {
             We make finding a new place painless
           </h1>
           <p className="container">
-            <div className="control">
+            <div
+              className="control"
+              style={{
+              padding: "10px 100px"
+            }}>
               <input
                 className="input is-large"
                 type="text"

@@ -75,22 +75,29 @@ const RegisterModal = ({isActive, onClick}) => {
           <button class="delete" aria-label="close" onClick={onClick}></button>
         </header>
         <section class="modal-card-body">
+          <label class="label">Full name</label>
           <div class="field">
             <div class="control">
               <input class="input is-medium" type="text" placeholder="Chuck Norris"/>
             </div>
           </div>
           <div class="field">
+            <label class="label">E-mail</label>
+
             <div class="control">
               <input class="input is-medium" type="e-mail" placeholder="email@gmail.com"/>
             </div>
           </div>
           <div class="field">
+            <label class="label">Telephone</label>
+
             <div class="control">
               <input class="input is-medium" type="telephone" placeholder="+86 123 456 789"/>
             </div>
           </div>
           <div class="field">
+            <label class="label">Password</label>
+
             <div class="control">
               <input class="input is-medium" type="password" placeholder="********"/>
             </div>
