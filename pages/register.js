@@ -86,6 +86,12 @@ const renderQuestions = number => {
 }
 
 const BottomButtons = ({onClick, complete}) => {
+
+  const showLink = (complete, onClick) => {
+    complete
+      ? <button class="button is-link is-medium" onClick={onClick}>Complete</button>
+      : <button class="button is-link is-medium" onClick={onClick}>Next</button>
+  }
   return (
     <div class="columns" style={{
       paddingTop: "60px"
@@ -97,9 +103,12 @@ const BottomButtons = ({onClick, complete}) => {
       </div>
       <div class="column">
         <div class="control">
-          <button class="button is-link is-medium" onClick={onClick}>{complete
-              ? 'Complete'
-              : "Next"}</button>
+          {complete
+            ? <Link href="/">
+                <button class="button is-link is-medium" onClick={onClick}>Complete</button>
+              </Link>
+            : <button class="button is-link is-medium" onClick={onClick}>Next</button>
+}
         </div>
       </div>
     </div>
