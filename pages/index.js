@@ -1,16 +1,16 @@
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import {mockData} from '../mockData'
 export default class extends React.Component {
 
   // example of getting data
 
   render() {
-
     return (
       <div>
         <FullWidthImage/>
-        <PropertyList properties={properties}/>
+        <PropertyList properties={mockData}/>
         <Pagination/>
         <Footer/>
       </div>
@@ -41,7 +41,7 @@ const Pagination = () => {
             <a className="pagination-link" aria-label="Goto page 45">10</a>
           </li>
           <li>
-            <a className="pagination-link " aria-label="Page 46" aria-current="page">12</a>
+            <a className="pagination-link " aria-label="Page 46" aria-current="page">11</a>
           </li>
           <li>
             <a className="pagination-link" aria-label="Goto page 47">12</a>
@@ -50,7 +50,7 @@ const Pagination = () => {
             <span className="pagination-ellipsis">&hellip;</span>
           </li>
           <li>
-            <a class="pagination-link" aria-label="Goto page 86">20</a>
+            <a className="pagination-link" aria-label="Goto page 86">20</a>
           </li>
         </ul>
       </nav>
@@ -89,15 +89,7 @@ const PropertyList = ({properties}) => {
       <div className="container">
         {properties.map((property, index) => (
           <div>
-            <PropertyDetail
-              key={property.id}
-              photo={property.photo}
-              location={property.location}
-              city={property.city}
-              price={property.price}
-              date={property.date}
-              id={property.id}
-              title={property.title}/>
+            <PropertyDetail {...property}/>
             <hr/>
           </div>
         ))
@@ -125,7 +117,7 @@ const PropertyDetail = ({
           <figure className="image" style={{
             width: "256px"
           }}>
-            <img src="https://bulma.io/images/placeholders/256x256.png"/>
+            <img src={`../static/img/room${id}.jpg`}/>
           </figure>
         </Link>
       </div>
@@ -156,62 +148,3 @@ const PropertyDetail = ({
     </div>
   )
 }
-
-// <div className="tile is-parent"> <article className="tile is-child
-// notification is-primary">   <p className="title">{title + " "}     in
-// {location}</p>   <div className="content">     <p>Lorem ipsum dolor sit amet,
-// consectetur adipiscing elit. Proin ornare magna       eros, eu pellentesque
-// tortor vestibulum ut. Maecenas non massa sem. Etiam       finibus odio quis
-// feugiat facilisis.</p>   </div> </article> </div>
-
-const properties = [
-  {
-    photo: "",
-    title: "Gorgeous 3 bedroom appartment",
-    city: "Beijing",
-    location: "Dongzhimen",
-    price: "3000",
-    id: "1",
-    date: "24-06-2018"
-  }, {
-    photo: "",
-    title: "Gorgeous 3 bedroom appartment",
-    city: "Beijing",
-    location: "Sanlitun",
-    price: "4000",
-    id: "2",
-    date: "23-06-2018"
-  }, {
-    photo: "",
-    title: "Gorgeous 3 bedroom appartment",
-    city: "Beijing",
-    price: "3000",
-    location: "Liudaokou",
-    id: "3",
-    date: "24-06-2018"
-  }, {
-    photo: "",
-    title: "Gorgeous 3 bedroom appartment",
-    city: "Beijing",
-    price: "4000",
-    id: "4",
-    location: "Yonghegong",
-    date: "23-06-2018"
-  }, {
-    photo: "",
-    title: "Gorgeous 3 bedroom appartment",
-    city: "Beijing",
-    price: "3000",
-    id: "5",
-    location: "Anlilu",
-    date: "24-06-2018"
-  }, {
-    photo: "",
-    title: "Gorgeous 3 bedroom appartment",
-    city: "Beijng",
-    location: "Xizhimen",
-    price: "4000",
-    id: "6",
-    date: "23-06-2018"
-  }
-]

@@ -2,6 +2,20 @@ import Link from 'next/link'
 
 export default class Navbar extends React.PureComponent {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      isActive: true
+    }
+  }
+
+  toggleModal = () => {
+    this.setState({
+      isActive: !this.state.isActive
+    })
+
+  }
+
   render() {
     return (
       <div className="hero-head ">
@@ -26,29 +40,68 @@ export default class Navbar extends React.PureComponent {
                     Home
                   </a>
                 </Link>
-                <Link href="/landlords">
+                <Link href="/login">
                   <a className="navbar-item">
-                    Landlords
+                    Login
                   </a>
                 </Link>
-                <Link href="/renters">
-                  <a className="navbar-item">
-                    Renters
+
+                <span className="navbar-item">
+                  <a className="button is-info is-inverted" onClick={this.toggleModal}>
+                    <span>Register</span>
                   </a>
-                </Link>
-                <Link href="/register">
-                  <span className="navbar-item">
-                    <a className="button is-info is-inverted">
-                      <span>Register</span>
-                    </a>
-                  </span>
-                </Link>
+                </span>
 
               </div>
             </div>
           </div>
         </nav>
+        <RegisterModal isActive={this.state.isActive} onClick={this.toggleModal}/>
       </div>
     )
   }
+}
+
+const RegisterModal = ({isActive, onClick}) => {
+
+  return (
+    <div className={`modal ${isActive
+      ? 'is-active'
+      : ""}`}>
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Register to Rentaroo</p>
+          <button class="delete" aria-label="close" onClick={onClick}></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="field">
+            <div class="control">
+              <input class="input is-medium" type="text" placeholder="Chuck Norris"/>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input class="input is-medium" type="e-mail" placeholder="email@gmail.com"/>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input class="input is-medium" type="telephone" placeholder="+86 123 456 789"/>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input class="input is-medium" type="password" placeholder="********"/>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-info is-inverted">Rent a place</button>
+          <button class="button is-info ">List my place</button>
+        </footer>
+      </div>
+    </div>
+
+  )
 }
