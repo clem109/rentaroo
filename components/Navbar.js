@@ -28,10 +28,7 @@ export default class Navbar extends React.PureComponent {
                 </a>
                 <span className="navbar-item">
                   <a className="button is-info is-inverted">
-                    <span className="icon">
-                      <i className="fab fa-github"></i>
-                    </span>
-                    <span>Download</span>
+                    <span>Register</span>
                   </a>
                 </span>
               </div>
