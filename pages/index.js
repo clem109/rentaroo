@@ -115,10 +115,8 @@ const PropertyDetail = ({
     }}>
       <div className="column is-one-third">
         <Link href={`/property?id=${id}`}>
-          <figure className="image" style={{
-            width: "256px"
-          }}>
-            <img src={`../static/img/room${id}.jpg`}/>
+          <figure className="image">
+            <img src={`../static/img/room${id}.png`}/>
           </figure>
         </Link>
         <div class="tags">

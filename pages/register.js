@@ -14,7 +14,7 @@ export default class extends React.Component {
 
   onButtonClick = () => {
 
-    if (this.state.questionSet === 3) {
+    if (this.state.questionSet === 4) {
       this.setState({
         complete: !this.state.complete
       })
@@ -78,6 +78,10 @@ const renderQuestions = number => {
     return <QuestionThree/>
   }
 
+  if (number === 4) {
+    return <QuestionFour/>
+  }
+
   return <Complete/>
 }
 
@@ -105,14 +109,15 @@ const BottomButtons = ({onClick, complete}) => {
 const determineProgress = num => {
   const progressAmounts = {
     1: 20,
-    2: 50,
-    3: 75,
-    4: 100
+    2: 40,
+    3: 60,
+    4: 80,
+    5: 100
   }
 
   return progressAmounts[num]
 }
-const titlesArray = ["Step 1: Start with the basics", "Step 2: Where are you at?", "Step 3: What ameneties do you have?", "Congratulations you're all set!"]
+const titlesArray = ["Step 1: Start with the basics", "Step 2: Where are you at?", "Step 3: What ameneties do you have?", "Step 4: Upload some nice photos", "Congratulations you're all set!"]
 
 const QuestionsOne = () => {
   return (
@@ -202,41 +207,111 @@ const QuestionTwo = () => {
 
 const QuestionThree = () => {
   return (
-    <div styles={{
+    <div style={{
       flexDirection: "column",
       display: "flex"
     }}>
-      <label class="checkbox">
+      <label
+        class="checkbox"
+        style={{
+        padding: "20px",
+        fontSize: "25px"
+      }}>
         <input type="checkbox"/>
         Television
       </label>
-      <label class="checkbox">
+      <label
+        class="checkbox"
+        style={{
+        padding: "20px",
+        fontSize: "25px"
+      }}>
         <input type="checkbox"/>
         Wi-Fi
       </label>
-      <label class="checkbox">
+      <label
+        class="checkbox"
+        style={{
+        padding: "20px",
+        fontSize: "25px"
+      }}>
         <input type="checkbox"/>
         Swimming Pool
       </label>
-      <label class="checkbox">
+      <label
+        class="checkbox"
+        style={{
+        padding: "20px",
+        fontSize: "25px"
+      }}>
         <input type="checkbox"/>
         Breakfast Included
       </label>
-      <label class="checkbox">
+      <label
+        class="checkbox"
+        style={{
+        padding: "20px",
+        fontSize: "25px"
+      }}>
         <input type="checkbox"/>
         Heat
       </label>
-      <label class="checkbox">
+      <label
+        class="checkbox"
+        style={{
+        padding: "20px",
+        fontSize: "25px"
+      }}>
         <input type="checkbox"/>
         Towels Included
       </label>
     </div>
   )
+}
 
+const QuestionFour = () => {
+  return (
+    <div class="field">
+      <div class="file is-centered is-boxed is-success has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume"/>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Centered file…
+            </span>
+          </span>
+          <span class="file-name">
+            Screen Shot 2017-07-29 at 15.54.25.png
+          </span>
+        </label>
+      </div>
+    </div>
+  )
 }
 const Complete = () => {
   return (
-    <h1>complete</h1>
+    <div className="content" style={{
+      marginTop: "50px"
+    }}>
+      <h3>You're now ready to rent out your appartment</h3>
+      <p>Lorem ipsu dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus
+        ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu
+        lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel,
+        interdum mattis neque. works as well!</p>
+      <h3>Follow our easy to use process</h3>
+      <p>Curabitur accumsan turpis pharetra blandit. Quisque condimentum maximus mi,
+        sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis.
+        Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at
+        dignissim dui. Ut et neque nisl.</p>
+      <ul>
+        <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
+        <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
+        <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
+        <li>Ut non enim metus.</li>
+      </ul>
+    </div>
   )
-
 }
