@@ -5,7 +5,7 @@ export default class Navbar extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      isActive: true
+      isActive: false
     }
   }
 
@@ -98,7 +98,12 @@ const RegisterModal = ({isActive, onClick}) => {
         </section>
         <footer class="modal-card-foot">
           <button class="button is-info is-inverted">Rent a place</button>
-          <button class="button is-info ">List my place</button>
+          <button class="button is-info " onClick={onClick}>
+            <Link href="/register">
+              List my place
+            </Link>
+          </button>
+
         </footer>
       </div>
     </div>
