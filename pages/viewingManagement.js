@@ -9,41 +9,59 @@ export default class extends React.Component {
   // fetch('https://api.tvmaze.com/search/shows?q=batman')   // const data = await
   // response.json() from the ID find the correct json   return {shows: data} }
   static async getInitialProps({ req, res, query }) {
-    let id = query.id ? query.id : 1
-    const propById = getPropertyById(mockViewing, id)
+    let id = query.id ? query.id : [1, 2, 3]
+    const propById = getObjectById(mockViewing, id)
     return { data: formatData(propById) }
   }
 
 
 
   render() {
-    const { id, mobile, name, timeslot } = this.props.data
-    console.log(this.props.data)
     return (
       <div>
         <section className="hero is-info is-large">
           <Navbar />
 
         </section >
-        <section className="section" style={{ paddingLeft: "40px" }} >
-          <div className="container">
-            <h3 class="title" >Vewing Management</h3>
-            <div className="columns" >
-              <div className="column is-one-third"   >
-                <Image id={id} />
-                <Detail name="Name" val={name} />
-                <Detail name="Phone" val={mobile} />
-              </div>
-              <div className="column is-one-third">
-                <Detail name="Avaibilities" val={timeslot} />
-              </div>
-              <div className="column is-one-third" style={{ verticalAlign: "middle" }}>
-                <div><a class="button is-success is-rounded">Accept</a></div>
-                <div><a class="button is-danger is-rounded">Refuse</a></div>
-              </div>
-            </div>
+        <div className="columns">
+          <div className="column is-one-quarter">
+            <nav class="panel">
+              <p class="panel-heading">
+                My flat
+              </p>
+              <a class="panel-block is-active">
+                <span class="panel-icon">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                Vewing requests
+               </a>
+              <a class="panel-block">
+                <span class="panel-icon">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                Payments
+              </a>
+              <a class="panel-block">
+                <span class="panel-icon">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                Settings
+              </a>
+            </nav>
+
+
           </div>
-        </section>
+
+          <div className="column is-three-quarter">
+            <h3 class="title" >Vewing Management</h3>
+            <ViewRequest info={this.props.data[0]} /><hr />
+            <ViewRequest info={this.props.data[1]} /><hr />
+            <ViewRequest info={this.props.data[2]} /><hr />
+          </div>
+        </div>
+
+
+
         <section className="section" style={{ paddingLeft: "40px" }}>
           <div className="container">
             <h3 class="title">Payments</h3>
@@ -54,11 +72,53 @@ export default class extends React.Component {
   }
 
 }
-const Image = ({ id }) => {
+
+const ViewRequest = ({ info }) => {
+  const { id, mobile, name, date, timeSlot } = info
+  //timeslot_ = timeSlot[0] + '/' + timeSlot[1] + '/' + timeSlot[2]
   return (
-    <img width={243 * 0.4} height={241 * 0.4} style={{ borderRadius: 241 * 0.5 }} src={"/static/img/user" + id + ".jpg"} />
+    < section className="section" style={{ paddingLeft: "40px" }} >
+      <div className="container">
+        <div className="columns" >
+          <div class="column is-three-quarters">
+            <div class="columns">
+              <div className="column is-one-third"   >
+                <Image id={id} />
+                <Detail name="Name" val={name} />
+                <Detail name="Phone" val={mobile} />
+              </div>
+              <div className="column is-one-third">
+                <Detail name="Avaibilities" val={date} />
+              </div>
+              <div className="column is-one-third" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div><a class="button is-success is-rounded" style={{ marginBottom: 10 }} > Accept</a></div>
+                <div><a class="button is-danger is-rounded">Refuse</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
+
+const Image = ({ id }) => {
+  const Width = 243
+  return (
+    <img width={Width * 0.4} height={Width * 0.4} style={{ borderRadius: Width * 0.2 }} src={"/static/img/user" + id + ".jpg"} />
+  )
+}
+const availDate = ({ val }) => {
+  if (name) {
+    return (
+      <div>
+        <b>Avaibilities</b> :<br />
+        {val}
+      </div>
+    )
+  }
+}
+
 const Detail = ({ name, val }) => {
   if (name) {
     return (
@@ -70,7 +130,8 @@ const Detail = ({ name, val }) => {
 }
 
 
-const getPropertyById = (dat, id) => {
-  return dat.filter((el) => el.id == id)[0]
+const getObjectById = (dat, id) => {
+  return dat.filter((el) => id.includes(el.id))
+  console.log(dat[1])
 }
 

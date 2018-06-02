@@ -1,5 +1,5 @@
-import {mockData} from '../mockData.js'
-import {formatData} from '../utils.js'
+import { mockData } from '../mockData.js'
+import { formatData } from '../utils.js'
 import Navbar from '../components/Navbar'
 
 export default class extends React.Component {
@@ -8,12 +8,12 @@ export default class extends React.Component {
   // {   const id = query.id   // const response = await
   // fetch('https://api.tvmaze.com/search/shows?q=batman')   // const data = await
   // response.json() from the ID find the correct json   return {shows: data} }
-  static async getInitialProps({req, res, query}) {
+  static async getInitialProps({ req, res, query }) {
     let id = query.id
       ? query.id
       : 1
     const propById = getPropertyById(mockData, id)
-    return {data: formatData(propById)}
+    return { data: formatData(propById) }
   }
 
   render() {
@@ -27,23 +27,23 @@ export default class extends React.Component {
       rooms,
       floor
     } = this.props.data
-
+    console.log(this.props.data)
     return (
       <div>
 
         <section class="hero is-small is-primary is-bold">
-          <Navbar/>
+          <Navbar />
 
           <div class="hero-body">
             <div class="container">
               <h1 class="title">
-                Flat in {city}, {location}
+                Flat in {this.props.city}, {this.props.location}
               </h1>
               <h2 class="subtitle">
-                Price: {price}
+                Price: {this.props.price}
                 元
-                <br/>
-                Available: {date}
+                <br />
+                Available: {this.props.date}
               </h2>
             </div>
           </div>
@@ -54,17 +54,17 @@ export default class extends React.Component {
             padding: "20px"
           }}>
             <div className="column is-one-third">
-              {Image({id})}
+              <Image id={id} />
             </div>
             <div className="column is-two-thirds">
               <div className="columns">
                 <div className="column">
-                  <Detail name="Adress" val={city + ', ' + location}/>
-                  <Detail name="Floor" val={floor}/>
+                  <Detail name="Adress" val={city + ', ' + location} />
+                  <Detail name="Floor" val={floor} />
                 </div>
                 <div className="column">
-                  <Detail name="Rooms" val={rooms}/>
-                  <Detail name={"Published date"} val={date}/>
+                  <Detail name="Rooms" val={rooms} />
+                  <Detail name={"Published date"} val={date} />
                 </div>
               </div>
             </div>
@@ -75,11 +75,10 @@ export default class extends React.Component {
   }
 
 }
-const Image = ({id}) => {
-  console.log(id)
-  return (<img src={`/static/img/room${id}.jpg`}/>)
+const Image = ({ id }) => {
+  return (<img src={"/static/img/room" + id + ".png"} />)
 }
-const Detail = ({name, val}) => {
+const Detail = ({ name, val }) => {
   if (name) {
     return (
       <div>

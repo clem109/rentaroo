@@ -62,7 +62,23 @@ const mockViewing = [
         id: 1,
         name: "小明",
         mobile: "159-5515-5155",
-        timeSlot: [2017, 3, 24],
+        date: [2017, 3, 24],
+        timeSlot: 11
+
+    },
+    {
+        id: 2,
+        name: "张三",
+        mobile: "159-5515-5155",
+        date: [2017, 4, 30],
+        timeSlot: 12
+    },
+    {
+        id: 3,
+        name: "李四",
+        mobile: "159-5515-5155",
+        date: [2017, 5, 24],
+        timeSlot: 15
     }
 ]
 
