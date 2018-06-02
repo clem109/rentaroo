@@ -27,7 +27,7 @@ export default class extends React.Component {
       rooms,
       floor
     } = this.props.data
-    console.log(this.props.data)
+
     return (
       <div>
 
@@ -37,13 +37,13 @@ export default class extends React.Component {
           <div class="hero-body">
             <div class="container">
               <h1 class="title">
-                Flat in {this.props.city}, {this.props.location}
+                Flat in {city}, {location}
               </h1>
               <h2 class="subtitle">
-                Price: {this.props.price}
+                Price: {price}
                 元
                 <br/>
-                Available: {this.props.date}
+                Available: {date}
               </h2>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default class extends React.Component {
             padding: "20px"
           }}>
             <div className="column is-one-third">
-              {Image(this.props.id)}
+              {Image({id})}
             </div>
             <div className="column is-two-thirds">
               <div className="columns">
@@ -76,7 +76,8 @@ export default class extends React.Component {
 
 }
 const Image = ({id}) => {
-  return (<img src={"/static/img/room" + id + ".jpg"}/>)
+  console.log(id)
+  return (<img src={`/static/img/room${id}.jpg`}/>)
 }
 const Detail = ({name, val}) => {
   if (name) {
