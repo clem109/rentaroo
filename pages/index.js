@@ -121,11 +121,13 @@ const PropertyDetail = ({
       padding: "20px"
     }}>
       <div className="column is-one-third">
-        <figure className="image" style={{
-          width: "256px"
-        }}>
-          <img src="https://bulma.io/images/placeholders/256x256.png"/>
-        </figure>
+        <Link href={`/property?id=${id}`}>
+          <figure className="image" style={{
+            width: "256px"
+          }}>
+            <img src="https://bulma.io/images/placeholders/256x256.png"/>
+          </figure>
+        </Link>
       </div>
       <div className="column is-two-thirds ">
         <div className="tile">
