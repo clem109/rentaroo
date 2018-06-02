@@ -2,7 +2,7 @@ export default class Navbar extends React.PureComponent {
 
   render() {
     return (
-      <div className="hero-head">
+      <div className="hero-head ">
         <nav className="navbar">
           <div className="container">
             <div className="navbar-brand">
@@ -16,8 +16,8 @@ export default class Navbar extends React.PureComponent {
               </span>
             </div>
             <div id="navbarMenuHeroB" className="navbar-menu">
-              <div className="navbar-end">
-                <a className="navbar-item is-active">
+              <div className="navbar-end is-info">
+                <a className="navbar-item">
                   Home
                 </a>
                 <a className="navbar-item">

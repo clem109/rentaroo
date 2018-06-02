@@ -66,42 +66,18 @@ const FullWidthImage = () => {
 
       <div className="hero-body">
         <div className="container has-text-centered">
-          <p className="title">
-            Rentaroo
-          </p>
+          <h1 className="title">
+            We make finding a new place painless
+          </h1>
           <p className="container">
             <div className="control">
-              <input className="input is-focused" type="text" placeholder="Search now..."/>
+              <input
+                className="input is-large"
+                type="text"
+                placeholder="Discover something amazing..."/>
             </div>
           </p>
         </div>
-      </div>
-
-      <div className="hero-foot">
-        <nav className="tabs is-boxed is-fullwidth">
-          <div className="container">
-            <ul>
-              <li className="is-active">
-                <a>Beijing</a>
-              </li>
-              <li>
-                <a>Shanghai</a>
-              </li>
-              <li>
-                <a>Shenzhen</a>
-              </li>
-              <li>
-                <a>Chengdu</a>
-              </li>
-              <li>
-                <a>Guangzhou</a>
-              </li>
-              <li>
-                <a>Xian</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
       </div>
     </section>
   )
@@ -111,15 +87,20 @@ const PropertyList = ({properties}) => {
   return (
     <section className="section">
       <div className="container">
-        {properties.map((property, index) => (<PropertyDetail
-          key={property.id}
-          photo={property.photo}
-          location={property.location}
-          city={property.city}
-          price={property.price}
-          date={property.date}
-          id={property.id}
-          title={property.title}/>))
+        {properties.map((property, index) => (
+          <div>
+            <PropertyDetail
+              key={property.id}
+              photo={property.photo}
+              location={property.location}
+              city={property.city}
+              price={property.price}
+              date={property.date}
+              id={property.id}
+              title={property.title}/>
+            <hr/>
+          </div>
+        ))
 }
       </div>
     </section>
@@ -147,23 +128,24 @@ const PropertyDetail = ({
         </figure>
       </div>
       <div className="column is-two-thirds ">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification">
-              <p class="title">{location}</p>
-              <p class="subtitle">{city}</p>
+        <div className="tile">
+          <div className="tile is-parent is-vertical">
+            <article className="tile is-child notification">
+              <p className="title">{location}
+              </p>
+              <p className="subtitle">{city}</p>
             </article>
-            <article class="tile is-child notification">
-              <p class="title">Price</p>
-              <p class="subtitle">{price}
+            <article className="tile is-child notification">
+              <p className="title">Price</p>
+              <p className="subtitle">{price}
                 元</p>
             </article>
           </div>
-          <div class="tile is-parent">
-            <article class="tile is-child notification">
-              <p class="title">Information</p>
-              <p class="subtitle">Here goes a short description about the apartment so that
-                the user knows what they are looking at</p>
+          <div className="tile is-parent">
+            <article className="tile is-child notification">
+              <p className="title">Information</p>
+              <p className="subtitle">Here goes a short description about the apartment so
+                that the user knows what they are looking at</p>
             </article>
           </div>
         </div>
