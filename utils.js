@@ -11,6 +11,7 @@ const renderFloor = (nb) => {
 
 const formatData = (prop) => {
     prop.rooms = renderRooms(prop.rooms)
+    console.log(prop.room)
     prop.floor = renderFloor(prop.floor)
     return prop
 }

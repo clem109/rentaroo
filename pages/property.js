@@ -1,4 +1,4 @@
-var mockData = require('../mockData.js')
+import { mockData } from '../mockData.js'
 import { formatData } from '../utils.js'
 import Navbar from '../components/Navbar'
 
@@ -9,8 +9,8 @@ export default class extends React.Component {
   // fetch('https://api.tvmaze.com/search/shows?q=batman')   // const data = await
   // response.json() from the ID find the correct json   return {shows: data} }
   static async getInitialProps({ req, res, query }) {
-    let id = query.id
-    var data = getPropertyById(mockData.properties, id)
+    let id = query.id ? query.id : 1
+    var data = getPropertyById(mockData, id)
     data = formatData(data)
     console.log(data)
     return data
