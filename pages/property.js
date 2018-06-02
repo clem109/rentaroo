@@ -1,5 +1,5 @@
-import { mockData } from '../mockData.js'
-import { formatData } from '../utils.js'
+import {mockData} from '../mockData.js'
+import {formatData} from '../utils.js'
 import Navbar from '../components/Navbar'
 
 export default class extends React.Component {
@@ -8,30 +8,43 @@ export default class extends React.Component {
   // {   const id = query.id   // const response = await
   // fetch('https://api.tvmaze.com/search/shows?q=batman')   // const data = await
   // response.json() from the ID find the correct json   return {shows: data} }
-  static async getInitialProps({ req, res, query }) {
-    let id = query.id ? query.id : 1
+  static async getInitialProps({req, res, query}) {
+    let id = query.id
+      ? query.id
+      : 1
     var data = getPropertyById(mockData, id)
     data = formatData(data)
-    console.log(data)
     return data
   }
-
-
 
   render() {
 
     return (
       <div>
-        <section className="hero is-info is-large">
-          <Navbar />
 
-        </section >
-        <section className="section" >
-          <h3>{this.props.title}</h3>
+        <section class="hero is-small is-primary is-bold">
+          <Navbar/>
+
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">
+                Flat in {this.props.city}, {this.props.location}
+              </h1>
+              <h2 class="subtitle">
+                Price: {this.props.price}
+                元
+                <br/>
+                Available: {this.props.date}
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
           <div className="columns" style={{
             padding: "20px"
           }}>
-            <div className="column is-one-third"   >
+            <div className="column is-one-third">
               {Image(this.props.id)}
             </div>
             <div className="column is-two-thirds">
@@ -54,18 +67,16 @@ export default class extends React.Component {
 
 }
 const Image = (id) => {
-  return (
-    <img src={"/static/img/room" + id + ".jpg"} />
-  )
+  return (<img src={"/static/img/room" + id + ".jpg"}/>)
 }
 const Detail = (name, val) => {
   return (
     <div>
-      <b>{name}</b> : {val}
+      <b>{name}</b>
+      : {val}
     </div>
   )
 }
-
 
 const getPropertyById = (data, id) => {
   return data.filter((el) => el.id == id)[0]
