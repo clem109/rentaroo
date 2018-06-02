@@ -57,4 +57,13 @@ const mockData = [
     }
 ]
 
-export { mockData }
+const mockViewing = [
+    {
+        id: 1,
+        name: "小明",
+        mobile: "159-5515-5155",
+        timeSlot: [2017, 3, 24],
+    }
+]
+
+export { mockData, mockViewing }
