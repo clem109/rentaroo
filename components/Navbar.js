@@ -20,13 +20,13 @@ export default class Navbar extends React.PureComponent {
   render() {
 
     return (
-      <div className="hero-head ">
-        <nav className="navbar">
+      <div className="hero-head">
+        <nav className="navbar" style={{ minHeight: "100px" }}>
           <div className="container">
-            <div className="navbar-brand">
+            <div className="navbar-brand" >
               <Link href="/">
-                <a className="navbar-item">
-                  <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
+                <a className="navbar-item" style={{ minWidth: "100px" }}>
+                  <img src={"../static/img/logo.png"} alt="Logo" style={{ minWidth: "60px", minHeight: "60px" }} />
                 </a>
               </Link>
               <span className="navbar-burger burger" data-target="navbarMenuHeroB">
