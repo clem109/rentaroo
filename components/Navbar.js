@@ -51,13 +51,15 @@ const Buttons = (loggedIn) => {
     return (
       <div className="navbar-end is-info">
         <Link href="/">
-          <a className="navbar-item">
+          <a className="navbar-item" style={{ color: "white", fontWeight: "bold" }}>
             Home
         </a>
         </Link>
-        <a className="navbar-item">
-          Login
+        <Link href="/viewingManagement">
+          <a className="navbar-item" style={{ color: "white", fontWeight: "bold" }}>
+            Login
         </a>
+        </Link>
         <span className="navbar-item">
           <a className="button is-info is-inverted" onClick={this.toggleModal}>
             <span>Register</span>

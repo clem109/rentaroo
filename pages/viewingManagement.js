@@ -19,55 +19,57 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <section className="hero is-small is-primary">
+        <section className="hero is-small is-primary  has-bg-img">
           <Navbar isLoggedIn={true} />
 
         </section >
-        <div className="columns">
-          <div className="column is-one-quarter">
-            <nav class="panel">
-              <p class="panel-heading">
-                My flat
+        <div className="container">
+          <div className="columns">
+            <div className="column is-one-quarter">
+              <nav class="panel">
+                <p class="panel-heading">
+                  My flat
               </p>
-              <a class="panel-block is-active">
-                <span class="panel-icon">
-                  <i class="fas fa-book" aria-hidden="true"></i>
-                </span>
-                Vewing requests
+                <a class="panel-block is-active">
+                  <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                  </span>
+                  Viewing Requests
                </a>
-              <a class="panel-block">
-                <span class="panel-icon">
-                  <i class="fas fa-book" aria-hidden="true"></i>
-                </span>
-                Payments
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                  </span>
+                  Payments
               </a>
-              <a class="panel-block">
-                <span class="panel-icon">
-                  <i class="fas fa-book" aria-hidden="true"></i>
-                </span>
-                Settings
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                  </span>
+                  Settings
               </a>
-            </nav>
+              </nav>
 
 
+            </div>
+
+            <div className="column is-three-quarter">
+              <h3 class="title" >Viewing Requests</h3>
+              <ViewRequest info={this.props.data[0]} /><hr />
+              <ViewRequest info={this.props.data[1]} /><hr />
+              <ViewRequest info={this.props.data[2]} /><hr />
+            </div>
           </div>
 
-          <div className="column is-three-quarter">
-            <h3 class="title" >Vewing Management</h3>
-            <ViewRequest info={this.props.data[0]} /><hr />
-            <ViewRequest info={this.props.data[1]} /><hr />
-            <ViewRequest info={this.props.data[2]} /><hr />
-          </div>
-        </div>
 
 
-
-        <section className="section" style={{ paddingLeft: "40px" }}>
-          <div className="container">
-            <h3 class="title">Payments</h3>
-          </div>
-        </section>
-      </div >
+          <section className="section" style={{ paddingLeft: "40px" }}>
+            <div className="container">
+              <h3 class="title">Payments</h3>
+            </div>
+          </section>
+        </div >
+      </div>
     )
   }
 
@@ -78,22 +80,20 @@ const ViewRequest = ({ info }) => {
   //timeslot_ = timeSlot[0] + '/' + timeSlot[1] + '/' + timeSlot[2]
   return (
     < section className="section" style={{ paddingLeft: "40px" }} >
-      <div className="container">
-        <div className="columns" >
-          <div class="column is-three-quarters">
-            <div class="columns">
-              <div className="column is-one-third"   >
-                <Image id={id} />
-                <Detail name="Name" val={name} />
-                <Detail name="Phone" val={mobile} />
-              </div>
-              <div className="column is-one-third">
-                <DetailDate name="Avaibilities" date={date} timeSlot={timeSlot} />
-              </div>
-              <div className="column is-one-third" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div><a class="button is-success is-rounded" style={{ marginBottom: 10 }} > Accept</a></div>
-                <div><a class="button is-danger is-rounded">Refuse</a></div>
-              </div>
+      <div className="columns" >
+        <div class="column is-three-quarters">
+          <div class="columns">
+            <div className="column is-one-third"   >
+              <Image id={id} />
+              <Detail name="Name" val={name} />
+              <Detail name="Phone" val={mobile} />
+            </div>
+            <div className="column is-two-thirds">
+              <DetailDate name="Avaibilities" date={date} timeSlot={timeSlot} />
+            </div>
+            <div className="column is-one-third" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div><a class="button is-success is-rounded" style={{ marginBottom: 10 }} > Accept</a></div>
+              <div><a class="button is-danger is-rounded">Refuse</a></div>
             </div>
           </div>
         </div>

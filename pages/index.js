@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import {mockData} from '../mockData'
+import { mockData } from '../mockData'
 export default class extends React.Component {
 
   // example of getting data
@@ -9,10 +9,10 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <FullWidthImage/>
-        <PropertyList properties={mockData}/>
-        <Pagination/>
-        <Footer/>
+        <FullWidthImage />
+        <PropertyList properties={mockData} />
+        <Pagination />
+        <Footer />
       </div>
     )
   }
@@ -61,21 +61,21 @@ const Pagination = () => {
 
 const FullWidthImage = () => {
   return (
-    <section className="hero is-primary is-medium is-bold">
-      <Navbar/>
+    <section className="hero is-medium as-bg-img" style={{ background: "url('../static/img/background_small.jpg')", backgroundSize: 'cover' }}>
+      <Navbar />
 
       <div className="hero-body">
         <div className="container has-text-centered">
-          <h1 className="title">
+          <h1 className="title" style={{ color: "white" }}>
             We make finding a new place painless
           </h1>
           <p className="container">
             <div
               className="control"
               style={{
-              padding: "10px 100px"
-            }}>
-              <input className="input is-large" type="text" placeholder="Search now..."/>
+                padding: "10px 100px"
+              }}>
+              <input className="input is-large" type="text" placeholder="Search now..." />
             </div>
           </p>
         </div>
@@ -84,17 +84,17 @@ const FullWidthImage = () => {
   )
 }
 
-const PropertyList = ({properties}) => {
+const PropertyList = ({ properties }) => {
   return (
     <section className="section">
       <div className="container">
         {properties.map((property, index) => (
           <div>
-            <PropertyDetail {...property}/>
-            <hr/>
+            <PropertyDetail {...property} />
+            <hr />
           </div>
         ))
-}
+        }
       </div>
     </section>
   )
@@ -116,7 +116,7 @@ const PropertyDetail = ({
       <div className="column is-one-third">
         <Link href={`/property?id=${id}`}>
           <figure className="image">
-            <img src={`../static/img/room${id}.png`}/>
+            <img src={`../static/img/room${id}.png`} />
           </figure>
         </Link>
         <div class="tags">
@@ -124,13 +124,13 @@ const PropertyDetail = ({
           <span
             class="tag is-primary"
             style={{
-            margin: "10px 3px"
-          }}>Close to Subway</span>
+              margin: "10px 3px"
+            }}>Close to Subway</span>
           <span
             class="tag is-primary"
             style={{
-            margin: "10px 3px"
-          }}>Good Schools</span>
+              margin: "10px 3px"
+            }}>Good Schools</span>
 
         </div>
 
