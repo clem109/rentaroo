@@ -167,7 +167,7 @@ const ViewModal = ({isActive}) => {
         </header>
         <section class="modal-card-body">
           Is {" "}
-          <strong>Monday 31st June at 5pm
+          <strong>Tuesday 31st June at 5pm
           </strong>
           {" "}
           okay for a visit? Alternatively pick another date.
@@ -184,7 +184,7 @@ const ViewModal = ({isActive}) => {
                 <td>Monday</td>
                 <td>5pm - 10pm</td>
               </tr>
-              <tr>
+              <tr className="is-selected">
                 <td>Tuesday</td>
                 <td>5pm - 10pm</td>
               </tr>
