@@ -78,6 +78,10 @@ const ViewRequest = ({ info }) => {
             <Image id={id} />
             <Detail name="Name" val={name} />
             <Detail name="Phone" val={mobile} />
+            <AddRating />
+            <AddRating />
+            <AddRating />
+            <AddRating />
           </div>
           <div className="column is-two-thirds">
             <DetailDate name="Avaibilities" date={date} timeSlot={timeSlot} />
@@ -92,7 +96,18 @@ const ViewRequest = ({ info }) => {
   )
 }
 
+const AddRating = ({ nb }) => {
+  const Star = () => {
+    return <img width="15px" height="15px" src={"../static/img/star.png"} />
+
+  }
+  if (!nb) { nb = 4 }
+  return (
+    < Star />
+  )
+}
 const Image = ({ id }) => {
+  if (!id) { id = 1 }
   const Width = 243
   return (
     <img width={Width * 0.4} height={Width * 0.4} style={{ borderRadius: Width * 0.2 }} src={"/static/img/user" + id + ".jpg"} />
