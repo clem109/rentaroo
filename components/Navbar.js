@@ -16,7 +16,9 @@ export default class Navbar extends React.PureComponent {
 
   }
 
+
   render() {
+
     return (
       <div className="hero-head ">
         <nav className="navbar">
@@ -24,7 +26,7 @@ export default class Navbar extends React.PureComponent {
             <div className="navbar-brand">
               <Link href="/">
                 <a className="navbar-item">
-                  <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"/>
+                  <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
                 </a>
               </Link>
               <span className="navbar-burger burger" data-target="navbarMenuHeroB">
@@ -34,33 +36,53 @@ export default class Navbar extends React.PureComponent {
               </span>
             </div>
             <div id="navbarMenuHeroB" className="navbar-menu">
-              <div className="navbar-end is-info">
-                <Link href="/">
-                  <a className="navbar-item">
-                    Home
-                  </a>
-                </Link>
-                <a className="navbar-item">
-                  Login
-                </a>
-
-                <span className="navbar-item">
-                  <a className="button is-info is-inverted" onClick={this.toggleModal}>
-                    <span>Register</span>
-                  </a>
-                </span>
-
-              </div>
+              {Buttons(this.props.isLoggedIn)}
             </div>
           </div>
         </nav>
-        <RegisterModal isActive={this.state.isActive} onClick={this.toggleModal}/>
+        <RegisterModal isActive={this.state.isActive} onClick={this.toggleModal} />
       </div>
     )
   }
 }
 
-const RegisterModal = ({isActive, onClick}) => {
+const Buttons = (loggedIn) => {
+  if (!loggedIn) {
+    return (
+      <div className="navbar-end is-info">
+        <Link href="/">
+          <a className="navbar-item">
+            Home
+        </a>
+        </Link>
+        <a className="navbar-item">
+          Login
+        </a>
+        <span className="navbar-item">
+          <a className="button is-info is-inverted" onClick={this.toggleModal}>
+            <span>Register</span>
+          </a>
+        </span>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className="navbar-end is-info ">
+        <Link href="/">
+          <span className="navbar-item">
+            <a className="button is-info is-inverted">
+              <span>My flat</span>
+            </a>
+          </span>
+        </Link>
+      </div>
+    )
+  }
+}
+
+
+const RegisterModal = ({ isActive, onClick }) => {
 
   return (
     <div className={`modal ${isActive
@@ -76,28 +98,28 @@ const RegisterModal = ({isActive, onClick}) => {
           <label class="label">Full name</label>
           <div class="field">
             <div class="control">
-              <input class="input is-medium" type="text" placeholder="Chuck Norris"/>
+              <input class="input is-medium" type="text" placeholder="Chuck Norris" />
             </div>
           </div>
           <div class="field">
             <label class="label">E-mail</label>
 
             <div class="control">
-              <input class="input is-medium" type="e-mail" placeholder="email@gmail.com"/>
+              <input class="input is-medium" type="e-mail" placeholder="email@gmail.com" />
             </div>
           </div>
           <div class="field">
             <label class="label">Telephone</label>
 
             <div class="control">
-              <input class="input is-medium" type="telephone" placeholder="+86 123 456 789"/>
+              <input class="input is-medium" type="telephone" placeholder="+86 123 456 789" />
             </div>
           </div>
           <div class="field">
             <label class="label">Password</label>
 
             <div class="control">
-              <input class="input is-medium" type="password" placeholder="********"/>
+              <input class="input is-medium" type="password" placeholder="********" />
             </div>
           </div>
         </section>

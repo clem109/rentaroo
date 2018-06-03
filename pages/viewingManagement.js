@@ -19,8 +19,8 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <section className="hero is-info is-large">
-          <Navbar />
+        <section className="hero is-small is-primary">
+          <Navbar isLoggedIn={true} />
 
         </section >
         <div className="columns">
@@ -88,7 +88,7 @@ const ViewRequest = ({ info }) => {
                 <Detail name="Phone" val={mobile} />
               </div>
               <div className="column is-one-third">
-                <Detail name="Avaibilities" val={date} />
+                <DetailDate name="Avaibilities" date={date} timeSlot={timeSlot} />
               </div>
               <div className="column is-one-third" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <div><a class="button is-success is-rounded" style={{ marginBottom: 10 }} > Accept</a></div>
@@ -108,15 +108,17 @@ const Image = ({ id }) => {
     <img width={Width * 0.4} height={Width * 0.4} style={{ borderRadius: Width * 0.2 }} src={"/static/img/user" + id + ".jpg"} />
   )
 }
-const availDate = ({ val }) => {
-  if (name) {
-    return (
-      <div>
-        <b>Avaibilities</b> :<br />
-        {val}
-      </div>
-    )
-  }
+const DetailDate = ({ date, timeSlot }) => {
+  var timeSlot2 = timeSlot + 1
+  timeSlot += ':00'
+  timeSlot2 += ':00'
+  const date1 = date[0] + '/' + date[1] + '/' + date[2] + ' from ' + timeSlot + ' to ' + timeSlot2
+  return (
+    <div>
+      <b>Avaibilities</b> : <br />
+      {date1}
+    </div>
+  )
 }
 
 const Detail = ({ name, val }) => {
