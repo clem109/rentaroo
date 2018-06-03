@@ -80,26 +80,18 @@ export default class extends React.Component {
                 </div>
               </div>
               <div class="tags column is-one-half">
-                <span class="tag">One</span>
-                <span class="tag">Two</span>
-                <span class="tag">Three</span>
-                <span class="tag">Four</span>
-                <span class="tag">Five</span>
-                <span class="tag">Six</span>
-                <span class="tag">Seven</span>
-                <span class="tag">Eight</span>
-                <span class="tag">Nine</span>
-                <span class="tag">Ten</span>
-                <span class="tag">Eleven</span>
-                <span class="tag">Twelve</span>
-                <span class="tag">Thirteen</span>
-                <span class="tag">Fourteen</span>
-                <span class="tag">Fifteen</span>
-                <span class="tag">Sixteen</span>
-                <span class="tag">Seventeen</span>
-                <span class="tag">Eighteen</span>
-                <span class="tag">Nineteen</span>
-                <span class="tag">Twenty</span>
+                <span class="tag">Clean</span>
+                <span class="tag">Elevator</span>
+                <span class="tag">Washing Machine</span>
+                <span class="tag">Furnished</span>
+                <span class="tag">No Pets</span>
+                <span class="tag">No Smoking</span>
+                <span class="tag">Close to Subway</span>
+                <span class="tag">Gas Stove</span>
+                <span class="tag">32" Xiaomi TV</span>
+                <span class="tag">Ironing board</span>
+                <span class="tag">Boaty McBoatFace</span>
+
               </div>
               <div class="columns">
                 <div class="tags column is-one-half"></div>

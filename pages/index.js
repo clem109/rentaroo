@@ -126,21 +126,18 @@ const PropertyDetail = ({
             <img src={`../static/img/room${id}.png`}/>
           </figure>
         </Link>
-        <div class="tags">
+        <div class="tags" style={{
+          padding: "12px"
+        }}>
 
-          <span
-            class="tag is-primary"
-            style={{
-            margin: "10px 3px"
-          }}>Close to Subway</span>
-          <span
-            class="tag is-primary"
-            style={{
-            margin: "10px 3px"
-          }}>Good Schools</span>
+          <span class="tag is-primary">Close to Subway</span>
+          <span class="tag is-primary">Good Schools</span>
+          <span class="tag" class="tag is-primary">Clean</span>
+          <span class="tag" class="tag is-primary">Elevator</span>
+          <span class="tag" class="tag is-primary">Washing Machine</span>
+          <span class="tag" class="tag is-primary">Furnished</span>
 
         </div>
-
       </div>
       <div className="column is-two-thirds ">
         <div className="tile">
@@ -163,6 +160,7 @@ const PropertyDetail = ({
                 that the user knows what they are looking at</p>
             </article>
           </div>
+
         </div>
 
       </div>

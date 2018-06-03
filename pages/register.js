@@ -14,7 +14,7 @@ export default class extends React.Component {
 
   onButtonClick = () => {
 
-    if (this.state.questionSet === 4) {
+    if (this.state.questionSet === 3) {
       this.setState({
         complete: !this.state.complete
       })
@@ -78,10 +78,6 @@ const renderQuestions = number => {
     return <QuestionThree/>
   }
 
-  if (number === 4) {
-    return <QuestionFour/>
-  }
-
   return <Complete/>
 }
 
@@ -117,16 +113,15 @@ const BottomButtons = ({onClick, complete}) => {
 
 const determineProgress = num => {
   const progressAmounts = {
-    1: 20,
-    2: 40,
-    3: 60,
-    4: 80,
-    5: 100
+    1: 25,
+    2: 50,
+    3: 75,
+    4: 100
   }
 
   return progressAmounts[num]
 }
-const titlesArray = ["Step 1: Start with the basics", "Step 2: Where are you at?", "Step 3: What ameneties do you have?", "Step 4: Upload some nice photos", "Congratulations you're all set!"]
+const titlesArray = ["Step 1: Start with the basics", "Step 2: Where are you at?", "Step 3: What ameneties do you have?", "Congratulations you're all set!"]
 
 const QuestionsOne = () => {
   return (
